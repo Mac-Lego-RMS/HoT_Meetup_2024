@@ -172,3 +172,14 @@ def waitFor(color):
                         break
 
 
+
+def Main():
+    right_tool.run_until_stalled(400,duty_limit=80)
+    drive_base.straight(490)
+    right_tool.run_angle(-400,80)
+    drive_base.turn(180)
+    drive_base.straight(490)
+
+
+
+Main()
