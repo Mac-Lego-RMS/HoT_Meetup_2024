@@ -77,8 +77,7 @@ drive_base.settings(977,350,150,930)
 # activate Drive Base Gyro (PID)
 drive_base.use_gyro(True)
 
-#Tune PID Controller
-drive_base.heading_control.pid(kp=125000,ki=2400000)
+
 
 # Brightness of the Matrix
 h = 100
@@ -130,31 +129,6 @@ left_right = Matrix(
 )
 
 
-#Musik
-def Mario():
-    s = 65
-    hub.speaker.beep(392,s)
-    hub.speaker.beep(494,s)
-    hub.speaker.beep(587,s)
-    hub.speaker.beep(784,s)
-    hub.speaker.beep(988,s)
-
-   # hub.speaker.beep(415,s)
-    #hub.speaker.beep(523,s)
-    #hub.speaker.beep(622,s)
-    #hub.speaker.beep(831,s)
-    #hub.speaker.beep(1047,s)
-
-    #hub.speaker.beep(466,s)
-    #hub.speaker.beep(587,s)
-    #hub.speaker.beep(659,s)
-    #hub.speaker.beep(932,s)
-    #hub.speaker.beep(1175,s)
-
-
-Mario()
-
-
 # Wait until Button press
 def waitBack(color):
     hub.light.animate([color,Color.NONE],200)
@@ -176,9 +150,11 @@ def waitFor(color):
 def Main():
     right_tool.run_until_stalled(400,duty_limit=80)
     drive_base.straight(490)
-    right_tool.run_angle(-400,80)
+    right_tool.run_angle(-400,80,wait=False)
     drive_base.turn(180)
     drive_base.straight(490)
+    
+
 
 
 
